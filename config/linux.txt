@@ -1,0 +1,23 @@
+[baseinfo]
+#选择所要使用的操作，支持执行命令、上传文件及下载文件
+# cmd, upload and download
+#远程主机登录时的信息文件
+operate = cmd
+loginfile = config/linuxlogin.txt
+
+[msgoutput]
+#将返回信息写入文件时需要提供一个有操作权限的目录
+filepath = logoutput/linux/
+
+[cmd]
+#命令文件
+cmdfile = command/linux.txt
+
+[upload]
+#配置文件路径时必须为绝对路径
+local = /home/jsf/work/python/netTools/datafile/123.txt
+remote = /home/jsf/work/file/测试.jpg
+
+[download]
+local = /home/jsf/work/python/netTools/datafile/234.txt
+remote = /home/jsf/work/file/123.txt

@@ -1,0 +1,16 @@
+[system]
+#目前支持的设备有linux主机的命令执行、sftp文件的上传与下载及网络设备的命令执行，具体支持的网络设备请看网络设备的配置文件。
+#使用那种设备请将前面的注释符号'#'删除，反之则将其注释,并且确认其配置文件的存在及配置的正确性。
+linux
+#windows
+network
+#security
+
+[configfile]
+#具体设备的配置文件
+linux = config/linux.txt
+network = config/network.txt
+
+[msgoutput]
+#返回信息输出至文件将值设置为on，输出至屏幕则将值设置为off
+msgtofile = on

@@ -1,0 +1,17 @@
+[baseinfo]
+#设备登录信息文件
+loginfile = config/netlogin.txt
+
+[msgoutput]
+#返回信息输出至文件时需要提供一个具有操作权限的目录
+filepath = logoutput/network/
+
+[cmdfile]
+#不同厂家的设备命令文件
+#目前支持的生产厂家设备有:cisco(思科)、huawei(华为)
+#后期可以在程序中添加ruijie(锐捷)、zte(中兴)、h3c等其他厂家的设备
+cisco = command/cisco.txt
+ruijie = command/ruijie.txt
+zte = command/zte.txt
+huawei = command/huawei.txt
+h3c = command/h3c.txt

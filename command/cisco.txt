@@ -1,0 +1,5 @@
+terminal length 0
+show users
+show ip int br
+show running
+show version
