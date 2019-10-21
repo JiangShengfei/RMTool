@@ -5,6 +5,7 @@ import sys
 import configparser
 from linux import *
 from network import *
+from concurrent.futures import ThreadPoolExecutor, wait
 
 curr_dir = sys.path[0]
 os.chdir(curr_dir)
@@ -37,6 +38,7 @@ def windows(conf_file, msgOutput=False):
 
     #conf = configparser.ConfigParser()
     #conf.read(conf)
+    print ("此功能未实现!")
     pass
 
 def network(conf_file, msgOutput=False):
@@ -51,11 +53,22 @@ def network(conf_file, msgOutput=False):
     cmdfile = {}
     for key in conf.options('cmdfile'):
         cmdfile[key] = conf.get('cmdfile', key)
-
     netOperate = net(remoteHost, cmdfile, filePrefix)
-    netOperate.exec_cmd()
+
+    def subtask(hostinfo):
+        netOperate.exec_cmd(hostinfo)
+
+    taskPool = ThreadPoolExecutor(20)
+    futures = []
+    for host in netOperate.remoteHost:
+        futures.append(taskPool.submit(subtask, host))
+
+    wait(futures)
+
+    netOperate.succMsg()
 
 def security(conf_file, msgOutput=False):
+    print ("此功能未实现!")
     pass
 
 

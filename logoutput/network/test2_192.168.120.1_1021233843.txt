@@ -1,0 +1,105 @@
+----------------------------------     
+  User last login information:     
+  -----------------------------------------------------------------------------
+  Access Type: Telnet      
+  IP-Address : 192.168.120.200     
+  Time       : 2019-10-21 23:28:59-08:00     
+  -----------------------------------------------------------------------------
+<R1>super
+  Now user privilege is level 3, and only those commands whose level is
+  equal to or less than this level can be used.
+  Privilege note: 0-VISIT, 1-MONITOR, 2-SYSTEM, 3-MANAGE
+<R1>12345678position.
+<R1>screen-length 0 temporary
+Info: The configuration takes effect on the current user terminal interface only.
+<R1>  dis version
+Huawei Versatile Routing Platform Software
+VRP (R) software, Version 5.130 (AR2200 V200R003C00)
+Copyright (C) 2011-2012 HUAWEI TECH CO., LTD
+Huawei AR2240 Router uptime is 0 week, 0 day, 2 hours, 16 minutes
+BKP 0 version information: 
+1. PCB      Version  : AR01BAK2B VER.NC
+2. If Supporting PoE : No
+3. Board    Type     : AR2240
+4. MPU Slot Quantity : 1
+5. LPU Slot Quantity : 8
+
+MPU 11(Master) : uptime is 0 week, 0 day, 2 hours, 16 minutes
+MPU version information : 
+1. PCB      Version  : AR01SRU3A VER.A
+2. MAB      Version  : 0
+3. Board    Type     : SRU40
+4. BootROM  Version  : 0
+
+FAN version information : 
+1. PCB      Version  : AR01DF05A VER.A
+2. Board    Type     : FAN
+3. Software Version  : 0
+
+<R1> dis ip int br
+*down: administratively down
+^down: standby
+(l): loopback
+(s): spoofing
+The number of interface that is UP in Physical is 2
+The number of interface that is DOWN in Physical is 2
+The number of interface that is UP in Protocol is 2
+The number of interface that is DOWN in Protocol is 2
+
+Interface                         IP Address/Mask      Physical   Protocol  
+GigabitEthernet0/0/0              192.168.120.1/24     up         up        
+GigabitEthernet0/0/1              unassigned           down       down      
+GigabitEthernet0/0/2              unassigned           down       down             up         up(s)     
+<R1>
+<R1> dis current
+[V200R003C00]
+#
+ sysname R1
+#
+ snmp-agent local-engineid 800007DB03000000000000
+ snmp-agent 
+#
+ clock timezone China-Standard-Time minus 08:00:00
+#
+portal local-server load portalpage.zip
+#
+ drop illegal-mac alarm
+#
+super password level 3 cipher %$%$SMfbSRm`K-L15z!1<"2%,-UH%$%$z!1<"2%,-UH%$%$
+#
+ set cpu-usage threshold 80 restore 75
+#
+aaa 
+ authentication-scheme default
+ authorization-scheme default
+ accounting-scheme default
+ domain default 
+ domain default_admin 
+ local-user test password cipher %$%$m!H!"njxZ-)GNm>nBq/7WOz2%$%$
+ local-user test privilege level 15
+ local-user test service-type telnet
+ local-user admin password cipher %$%$K8m.Nt84DZ}e#<0`8bmE3Uw}%$%$
+ local-user admin service-type http
+#
+firewall zone Local
+ priority 15
+#
+interface GigabitEthernet0/0/0
+ ip address 192.168.120.1 255.255.255.0 
+#
+interface GigabitEthernet0/0/1
+interface GigabitEthernet0/0/2
+#
+interface NULL0
+#
+user-interface con 0
+ authentication-mode password
+user-interface vty 0 4
+ authentication-mode aaa
+user-interface vty 16 20
+#
+wlan ac
+#
+return
+<R1>
+<R1>  

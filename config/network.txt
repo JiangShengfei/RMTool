@@ -10,8 +10,10 @@ filepath = logoutput/network/
 #不同厂家的设备命令文件
 #目前支持的生产厂家设备有:cisco(思科)、huawei(华为)
 #后期可以在程序中添加ruijie(锐捷)、zte(中兴)、h3c等其他厂家的设备
-cisco = command/cisco.txt
-ruijie = command/ruijie.txt
-zte = command/zte.txt
-huawei = command/huawei.txt
-h3c = command/h3c.txt
+cisco = command/cisco
+ruijie = command/ruijie
+zte = command/zte
+huawei = command/huawei
+h3c = command/h3c
+h3cv7 = command/h3cv7
+h3cv7juyuwang = command/h3cv7juyuwang
